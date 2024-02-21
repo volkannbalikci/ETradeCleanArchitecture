@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Core.Presistence">
+      <HintPath>..\..\..\nArchitectureDemo\src\corePackages\Core.Packages\Core.Presistence\bin\Debug\net7.0\Core.Presistence.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

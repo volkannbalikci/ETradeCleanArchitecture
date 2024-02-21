@@ -1,0 +1,132 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Abstractions\**" />
+    <EmbeddedResource Remove="Abstractions\**" />
+    <None Remove="Abstractions\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Addresses\Commands\Create\" />
+    <Folder Include="Features\Addresses\Commands\Delete\" />
+    <Folder Include="Features\Addresses\Commands\Update\" />
+    <Folder Include="Features\Addresses\Constants\" />
+    <Folder Include="Features\Addresses\Rules\" />
+    <Folder Include="Features\Addresses\Profiles\" />
+    <Folder Include="Features\Admins\Commands\Create\" />
+    <Folder Include="Features\Admins\Commands\Delete\" />
+    <Folder Include="Features\Admins\Commands\Update\" />
+    <Folder Include="Features\Admins\Constants\" />
+    <Folder Include="Features\Admins\Profiles\" />
+    <Folder Include="Features\Admins\Rules\" />
+    <Folder Include="Features\AdvertPhotoPaths\Commands\Create\" />
+    <Folder Include="Features\AdvertPhotoPaths\Commands\Delete\" />
+    <Folder Include="Features\AdvertPhotoPaths\Commands\Update\" />
+    <Folder Include="Features\AdvertPhotoPaths\Constants\" />
+    <Folder Include="Features\AdvertPhotoPaths\Profiles\" />
+    <Folder Include="Features\AdvertPhotoPaths\Rules\" />
+    <Folder Include="Features\Adverts\Commands\Create\" />
+    <Folder Include="Features\Adverts\Commands\Delete\" />
+    <Folder Include="Features\Adverts\Commands\Update\" />
+    <Folder Include="Features\Adverts\Constants\" />
+    <Folder Include="Features\Adverts\Profiles\" />
+    <Folder Include="Features\Adverts\Rules\" />
+    <Folder Include="Features\Brands\Commands\Create\" />
+    <Folder Include="Features\Brands\Commands\Delete\" />
+    <Folder Include="Features\Brands\Commands\Update\" />
+    <Folder Include="Features\Brands\Constants\" />
+    <Folder Include="Features\Brands\Profiles\" />
+    <Folder Include="Features\Brands\Rules\" />
+    <Folder Include="Features\Categories\Commands\Create\" />
+    <Folder Include="Features\Categories\Commands\Delete\" />
+    <Folder Include="Features\Categories\Commands\Update\" />
+    <Folder Include="Features\Categories\Constants\" />
+    <Folder Include="Features\Categories\Profiles\" />
+    <Folder Include="Features\Categories\Rules\" />
+    <Folder Include="Features\Cities\Commands\Create\" />
+    <Folder Include="Features\Cities\Commands\Delete\" />
+    <Folder Include="Features\Cities\Commands\Update\" />
+    <Folder Include="Features\Cities\Constants\" />
+    <Folder Include="Features\Cities\Profiles\" />
+    <Folder Include="Features\Cities\Rules\" />
+    <Folder Include="Features\CorporateUserAdverts\Commands\Create\" />
+    <Folder Include="Features\CorporateUserAdverts\Commands\Delete\" />
+    <Folder Include="Features\CorporateUserAdverts\Commands\Update\" />
+    <Folder Include="Features\CorporateUserAdverts\Constants\" />
+    <Folder Include="Features\CorporateUserAdverts\Profiles\" />
+    <Folder Include="Features\CorporateUserAdverts\Queries\" />
+    <Folder Include="Features\CorporateUserAdverts\Rules\" />
+    <Folder Include="Features\CorporateUsers\Commands\Create\" />
+    <Folder Include="Features\CorporateUsers\Commands\Delete\" />
+    <Folder Include="Features\CorporateUsers\Commands\Update\" />
+    <Folder Include="Features\CorporateUsers\Constants\" />
+    <Folder Include="Features\CorporateUsers\Profiles\" />
+    <Folder Include="Features\CorporateUsers\Queries\" />
+    <Folder Include="Features\CorporateUsers\Rules\" />
+    <Folder Include="Features\Countries\Commands\Create\" />
+    <Folder Include="Features\Countries\Commands\Delete\" />
+    <Folder Include="Features\Countries\Commands\Update\" />
+    <Folder Include="Features\Countries\Constants\" />
+    <Folder Include="Features\Countries\Profiles\" />
+    <Folder Include="Features\Countries\Queries\" />
+    <Folder Include="Features\Countries\Rules\" />
+    <Folder Include="Features\Districts\Commands\Create\" />
+    <Folder Include="Features\Districts\Commands\Delete\" />
+    <Folder Include="Features\Districts\Commands\Update\" />
+    <Folder Include="Features\Districts\Constants\" />
+    <Folder Include="Features\Districts\Profiles\" />
+    <Folder Include="Features\Districts\Queries\" />
+    <Folder Include="Features\Districts\Rules\" />
+    <Folder Include="Features\IndividualUserAdverts\Commands\Create\" />
+    <Folder Include="Features\IndividualUserAdverts\Commands\Delete\" />
+    <Folder Include="Features\IndividualUserAdverts\Commands\Update\" />
+    <Folder Include="Features\IndividualUserAdverts\Constants\" />
+    <Folder Include="Features\IndividualUserAdverts\Profiles\" />
+    <Folder Include="Features\IndividualUserAdverts\Queries\" />
+    <Folder Include="Features\IndividualUserAdverts\Rules\" />
+    <Folder Include="Features\IndividualUsers\Constants\" />
+    <Folder Include="Features\IndividualUsers\Queries\" />
+    <Folder Include="Features\IndividualUsers\Rules\" />
+    <Folder Include="Features\OperationClaims\Constants\" />
+    <Folder Include="Features\OperationClaims\Queries\" />
+    <Folder Include="Features\OperationClaims\Rules\" />
+    <Folder Include="Features\Products\Constants\" />
+    <Folder Include="Features\Products\Queries\" />
+    <Folder Include="Features\Products\Rules\" />
+    <Folder Include="Features\UserAddresses\Constants\" />
+    <Folder Include="Features\UserAddresses\Queries\" />
+    <Folder Include="Features\UserAddresses\Rules\" />
+    <Folder Include="Features\UserOperationClaims\Constants\" />
+    <Folder Include="Features\UserOperationClaims\Queries\" />
+    <Folder Include="Features\UserOperationClaims\Rules\" />
+    <Folder Include="Features\Users\Constants\" />
+    <Folder Include="Features\Users\Queries\" />
+    <Folder Include="Features\Users\Rules\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Core.Application">
+      <HintPath>..\..\..\nArchitectureDemo\src\corePackages\Core.Packages\Core.Application\bin\Debug\net7.0\Core.Application.dll</HintPath>
+    </Reference>
+    <Reference Include="Core.Presistence">
+      <HintPath>..\..\..\nArchitectureDemo\src\corePackages\Core.Packages\Core.Presistence\bin\Debug\net7.0\Core.Presistence.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
