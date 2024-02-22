@@ -39,8 +39,7 @@ public class GetByIdAdvertQuery : IRequest<GetByIdAdvertResponse>
                 .Include(a => a.Product.Brand)
                 .Include(a => a.Product.Category)
                  );
-            GetByIdAdvertQuery getByIdAdvertQuery = _mapper.Map<GetByIdAdvertQuery>(advert);
-            GetByIdAdvertResponse getByIdAdvertResponse = _mapper.Map<GetByIdAdvertResponse>(getByIdAdvertQuery);
+            GetByIdAdvertResponse getByIdAdvertResponse = _mapper.Map<GetByIdAdvertResponse>(advert);
             return getByIdAdvertResponse;
         }
     }
