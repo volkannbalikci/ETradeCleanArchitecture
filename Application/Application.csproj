@@ -88,19 +88,14 @@
     <Folder Include="Features\IndividualUsers\Constants\" />
     <Folder Include="Features\IndividualUsers\Rules\" />
     <Folder Include="Features\OperationClaims\Constants\" />
-    <Folder Include="Features\OperationClaims\Queries\GetById\" />
-    <Folder Include="Features\OperationClaims\Queries\GetList\" />
     <Folder Include="Features\OperationClaims\Rules\" />
     <Folder Include="Features\Products\Constants\" />
     <Folder Include="Features\Products\Rules\" />
     <Folder Include="Features\UserAddresses\Constants\" />
-    <Folder Include="Features\UserAddresses\Queries\" />
     <Folder Include="Features\UserAddresses\Rules\" />
     <Folder Include="Features\UserOperationClaims\Constants\" />
-    <Folder Include="Features\UserOperationClaims\Queries\" />
     <Folder Include="Features\UserOperationClaims\Rules\" />
     <Folder Include="Features\Users\Constants\" />
-    <Folder Include="Features\Users\Queries\" />
     <Folder Include="Features\Users\Rules\" />
   </ItemGroup>
 
