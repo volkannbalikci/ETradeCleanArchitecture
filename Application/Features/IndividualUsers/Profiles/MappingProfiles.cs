@@ -15,11 +15,11 @@ public class MappingProfiles : Profile
 {
 	public MappingProfiles()
 	{
-		CreateMap<IndividualUser, CreateIndividualUserCommand>();
-		CreateMap<IndividualUser, CreatedIndividualUserResponse>();
-		CreateMap<IndividualUser, DeleteIndividualUserCommand>();
-		CreateMap<IndividualUser, DeletedIndividualUserResponse>();
-		CreateMap<IndividualUser, UpdateIndividualUserCommand>();
-		CreateMap<IndividualUser, UpdatedIndividualUserReponse>();
+		CreateMap<IndividualUser, CreateIndividualUserCommand>().ReverseMap();
+		CreateMap<IndividualUser, CreatedIndividualUserResponse>().ReverseMap();
+		CreateMap<IndividualUser, DeleteIndividualUserCommand>().ReverseMap();
+		CreateMap<IndividualUser, DeletedIndividualUserResponse>().ReverseMap();
+		CreateMap<IndividualUser, UpdateIndividualUserCommand>().ReverseMap();
+		CreateMap<IndividualUser, UpdatedIndividualUserReponse>().ReverseMap();
 	}
 }

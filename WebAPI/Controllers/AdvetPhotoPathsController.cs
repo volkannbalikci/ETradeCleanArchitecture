@@ -1,7 +1,9 @@
 ﻿using Application.Features.AdvertPhotoPaths.Commands.Create;
 using Application.Features.AdvertPhotoPaths.Commands.Delete;
 using Application.Features.AdvertPhotoPaths.Commands.Update;
+using Application.Features.AdvertPhotoPaths.Queries.GetById;
 using Application.Features.AdvertPhotoPaths.Queries.GetList;
+using Application.Features.Categories.Queries.GetById;
 using Core.Application.Requests;
 using Core.Application.Responses;
 using Microsoft.AspNetCore.Mvc;
@@ -40,5 +42,13 @@ public class AdvetPhotoPathsController : CustomControllerBase
         GetListAdvertPhotoPathQuery getListAdvertPhotoPathQuery = new() { PageRequest = pageRequest };
         GetListResponse<GetListAdvertPhotoPathListItemDto> getListAdvertPhotoPathResponse= await Mediator.Send(getListAdvertPhotoPathQuery);
         return Ok(getListAdvertPhotoPathResponse);
+    }
+    
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById([FromRoute] Guid id)
+    {
+        GetByIdAdvertPhotoPathQuery getByIdAdvertPhotoPathQuery = new() { Id = id};
+        GetByIdAdvertPhotoPathResponse getByIdAdvertPhotoPathResponse = await Mediator.Send(getByIdAdvertPhotoPathQuery);
+        return Ok(getByIdAdvertPhotoPathResponse);
     }
 }

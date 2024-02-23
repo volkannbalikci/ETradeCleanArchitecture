@@ -31,11 +31,6 @@ public class BaseDbContext : DbContext
     public DbSet<UserAddress> UserAddresses { get; set; }
     public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
 
-
-    public BaseDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
-    {
-    }
-
     public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
     {
         Configuration = configuration;
@@ -44,16 +39,6 @@ public class BaseDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        this.SetRelationshipsOnDeleteBehaviors(DeleteBehavior.Restrict, modelBuilder);
-
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-    }
-
-    private void SetRelationshipsOnDeleteBehaviors(DeleteBehavior deleteBehavior, ModelBuilder modelBuilder)
-    {
-        foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
-        {
-            relationship.DeleteBehavior = deleteBehavior;
-        }
     }
 }

@@ -14,7 +14,6 @@ public class CreateBrandCommand : IRequest<CreatedBrandResponse>
 {
     public string Name { get; set; }
     public string WebsiteUrl { get; set; }
-    public DateTime CreatedDate { get; set; }
 
     public class CreateBrandCommandHandler : IRequestHandler<CreateBrandCommand, CreatedBrandResponse>
     {
@@ -31,6 +30,7 @@ public class CreateBrandCommand : IRequest<CreatedBrandResponse>
         {
             Brand brand = _mapper.Map<Brand>(request);
             brand.Id = Guid.NewGuid();
+            brand.CreatedDate = DateTime.UtcNow;
             var result = await _brandRepository.AddAsync(brand);
             CreatedBrandResponse createdBrandResponse = _mapper.Map<CreatedBrandResponse>(result);
             return createdBrandResponse;
