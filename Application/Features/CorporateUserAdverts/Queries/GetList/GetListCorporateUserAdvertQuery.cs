@@ -14,11 +14,11 @@ using System.Threading.Tasks;
 
 namespace Application.Features.CorporateUserAdverts.Queries.GetList;
 
-public class GetListCorporateUserAdvertQuery : IRequest<GetListResponse<GetListCortporateUserAdvertListItemDto>>
+public class GetListCorporateUserAdvertQuery : IRequest<GetListResponse<GetListCorporateUserAdvertListItemDto>>
 {
-    public PageRequest pageRequest { get; set; }
+    public PageRequest PageRequest { get; set; }
 
-    public class GetListCorporateUserAdvertQueryHandler : IRequestHandler<GetListCorporateUserAdvertQuery, GetListResponse<GetListCortporateUserAdvertListItemDto>>
+    public class GetListCorporateUserAdvertQueryHandler : IRequestHandler<GetListCorporateUserAdvertQuery, GetListResponse<GetListCorporateUserAdvertListItemDto>>
     {
         private readonly ICorporateUserAdvertRepository _corporateUserAdvertRepository;
         private readonly IMapper _mapper;
@@ -29,14 +29,14 @@ public class GetListCorporateUserAdvertQuery : IRequest<GetListResponse<GetListC
             _mapper = mapper;
         }
 
-        public async Task<GetListResponse<GetListCortporateUserAdvertListItemDto>> Handle(GetListCorporateUserAdvertQuery request, CancellationToken cancellationToken)
+        public async Task<GetListResponse<GetListCorporateUserAdvertListItemDto>> Handle(GetListCorporateUserAdvertQuery request, CancellationToken cancellationToken)
         {
             Paginate<CorporateUserAdvert> corporateUserAdverts = await _corporateUserAdvertRepository.GetListAsync(
-                index: request.pageRequest.PageIndex,
-                size: request.pageRequest.PageSize,
+                index: request.PageRequest.PageIndex,
+                size: request.PageRequest.PageSize,
                 include: c => c.Include(c => c.CorporateUser).Include(c => c.Advert)
                 );
-            GetListResponse<GetListCortporateUserAdvertListItemDto> getListResponse = _mapper.Map<GetListResponse<GetListCortporateUserAdvertListItemDto>>(corporateUserAdverts);
+            GetListResponse<GetListCorporateUserAdvertListItemDto> getListResponse = _mapper.Map<GetListResponse<GetListCorporateUserAdvertListItemDto>>(corporateUserAdverts);
             return getListResponse;
         }
     }

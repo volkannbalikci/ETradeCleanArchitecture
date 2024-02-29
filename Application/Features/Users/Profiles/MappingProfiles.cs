@@ -29,7 +29,6 @@ public class MappingProfiles : Profile
 
 		CreateMap<Paginate<User>, GetListResponse<GetListUserListItemDto>>().ReverseMap();
 		CreateMap<User, GetListUserListItemDto>().ReverseMap();
-		
 		CreateMap<User, GetByIdUserResponse>().ReverseMap();
 	}
 }

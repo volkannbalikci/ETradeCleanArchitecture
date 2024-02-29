@@ -15,7 +15,7 @@ namespace Application.Features.Countries.Queries.GetList;
 
 public class GetListCountryQuery : IRequest<GetListResponse<GetListCountryListItemDto>>
 {
-    public PageRequest pageRequest { get; set; }
+    public PageRequest PageRequest { get; set; }
 
     public class GetListCountryQueryHandler : IRequestHandler<GetListCountryQuery, GetListResponse<GetListCountryListItemDto>>
     {
@@ -31,8 +31,8 @@ public class GetListCountryQuery : IRequest<GetListResponse<GetListCountryListIt
         public async Task<GetListResponse<GetListCountryListItemDto>> Handle(GetListCountryQuery request, CancellationToken cancellationToken)
         {
             Paginate<Country> countries = await _countryRepository.GetListAsync(
-                index: request.pageRequest.PageIndex,
-                size: request.pageRequest.PageSize,
+                index: request.PageRequest.PageIndex,
+                size: request.PageRequest.PageSize,
                 cancellationToken: cancellationToken
                 );
             GetListResponse<GetListCountryListItemDto> getListResponse = _mapper.Map<GetListResponse<GetListCountryListItemDto>>(countries);

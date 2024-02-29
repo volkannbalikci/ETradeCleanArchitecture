@@ -1,6 +1,7 @@
 ﻿using Application.Features.AdvertPhotoPaths.Commands.Create;
 using Application.Features.AdvertPhotoPaths.Commands.Delete;
 using Application.Features.AdvertPhotoPaths.Commands.Update;
+using Application.Features.AdvertPhotoPaths.Queries.GetById;
 using Application.Features.AdvertPhotoPaths.Queries.GetList;
 using AutoMapper;
 using Core.Application.Responses;
@@ -27,5 +28,6 @@ public class MappingProfiles : Profile
 
 		CreateMap<Paginate<AdvertPhotoPath>, GetListResponse<GetListAdvertPhotoPathListItemDto>>().ReverseMap();
 		CreateMap<AdvertPhotoPath, GetListAdvertPhotoPathListItemDto>().ReverseMap();
+		CreateMap<AdvertPhotoPath, GetByIdAdvertPhotoPathResponse>().ReverseMap();
 	}
 }

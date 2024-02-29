@@ -15,7 +15,7 @@ namespace Application.Features.CorporateUsers.Queries.GetList;
 
 public class GetListCorporateUserQuery : IRequest<GetListResponse<GetListCorporateUserListItemDto>>
 {
-    public PageRequest pageRequest{ get; set; }
+    public PageRequest PageRequest{ get; set; }
 
     public class GetListCorporateUserQueryHandler : IRequestHandler<GetListCorporateUserQuery, GetListResponse<GetListCorporateUserListItemDto>>
     {
@@ -31,8 +31,8 @@ public class GetListCorporateUserQuery : IRequest<GetListResponse<GetListCorpora
         public async Task<GetListResponse<GetListCorporateUserListItemDto>> Handle(GetListCorporateUserQuery request, CancellationToken cancellationToken)
         {
             Paginate<CorporateUser> corporateUsers = await _corporateUserRepository.GetListAsync(
-                index: request.pageRequest.PageIndex,
-                size: request.pageRequest.PageSize,
+                index: request.PageRequest.PageIndex,
+                size: request.PageRequest.PageSize,
                 cancellationToken: cancellationToken
                 );
             GetListResponse<GetListCorporateUserListItemDto> getListResponse = _mapper.Map<GetListResponse<GetListCorporateUserListItemDto>>(corporateUsers);

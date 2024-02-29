@@ -15,7 +15,7 @@ namespace Application.Features.Districts.Queries.GetList;
 
 public class GetListDistrictQuery : IRequest<GetListResponse<GetListDistrictListItemDto>>
 {
-    public PageRequest pageRequest { get; set; }
+    public PageRequest PageRequest { get; set; }
 
     public class GetListDistrictQueryHandler : IRequestHandler<GetListDistrictQuery, GetListResponse<GetListDistrictListItemDto>>
 {
@@ -31,8 +31,8 @@ public class GetListDistrictQuery : IRequest<GetListResponse<GetListDistrictList
         public async Task<GetListResponse<GetListDistrictListItemDto>> Handle(GetListDistrictQuery request, CancellationToken cancellationToken)
         {
             Paginate<District> districts = await _districtRepository.GetListAsync(
-                index: request.pageRequest.PageIndex,
-                size: request.pageRequest.PageSize,
+                index: request.PageRequest.PageIndex,
+                size: request.PageRequest.PageSize,
                 cancellationToken: cancellationToken
                 );   
             GetListResponse<GetListDistrictListItemDto> getListResponse = _mapper.Map<GetListResponse<GetListDistrictListItemDto>>(districts);

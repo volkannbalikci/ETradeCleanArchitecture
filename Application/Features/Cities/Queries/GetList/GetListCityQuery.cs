@@ -16,7 +16,7 @@ namespace Application.Features.Cities.Queries.GetList;
 
 public class GetListCityQuery : IRequest<GetListResponse<GetListCityListItemDto>>
 {
-    public PageRequest pageRequest { get; set; }
+    public PageRequest PageRequest { get; set; }
 
     public class GetListCityQueryHandler : IRequestHandler<GetListCityQuery, GetListResponse<GetListCityListItemDto>>
     {
@@ -32,8 +32,8 @@ public class GetListCityQuery : IRequest<GetListResponse<GetListCityListItemDto>
         public async Task<GetListResponse<GetListCityListItemDto>> Handle(GetListCityQuery request, CancellationToken cancellationToken)
         {
             Paginate<City> cities = await _cityRepository.GetListAsync(
-                index: request.pageRequest.PageIndex,
-                size: request.pageRequest.PageSize,
+                index: request.PageRequest.PageIndex,
+                size: request.PageRequest.PageSize,
                 include: c => c.Include(c => c.Country)
                 );
             GetListResponse<GetListCityListItemDto> getListResponse = _mapper.Map<GetListResponse<GetListCityListItemDto>>(cities);

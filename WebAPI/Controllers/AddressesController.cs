@@ -4,6 +4,8 @@ using Application.Features.Addresses.Commands.Update;
 using Application.Features.Addresses.Queries.GetById;
 using Application.Features.Addresses.Queries.GetList;
 using Application.Features.Brands.Commands;
+using Application.Features.IndividualUserAdverts.Commands.Delete;
+using Application.Features.IndividualUserAdverts.Commands.Update;
 using Core.Application.Requests;
 using Core.Application.Responses;
 using Microsoft.AspNetCore.Mvc;
@@ -41,6 +43,14 @@ public class AddressesController : CustomControllerBase
     {
         GetListAddressQuery getListAddressQuery = new() { PageRequest = pageRequest };
         GetListResponse<GetListAddressListItemDto> getListAddressResponse = await Mediator.Send(getListAddressQuery);
-        return Ok(getListAddressQuery);
+        return Ok(getListAddressResponse);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById([FromRoute] Guid id)
+    {
+        GetByIdAddressQuery getByIdAddressQuery = new() { Id = id };
+        GetByIdAddressResponse getByIdAddressResponse = await Mediator.Send(getByIdAddressQuery);
+        return Ok(getByIdAddressResponse);
     }
 }

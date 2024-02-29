@@ -15,7 +15,7 @@ namespace Application.Features.IndividualUsers.Queries.GetList;
 
 public class GetListIndividualUserQuery : IRequest<GetListResponse<GetListIndividualUserListItemDto>>
 {
-    public PageRequest pageRequest { get; set; }
+    public PageRequest PageRequest { get; set; }
 
     public class GetListIndividualUserQueryHandler : IRequestHandler<GetListIndividualUserQuery, GetListResponse<GetListIndividualUserListItemDto>>
     {
@@ -31,8 +31,8 @@ public class GetListIndividualUserQuery : IRequest<GetListResponse<GetListIndivi
         public async Task<GetListResponse<GetListIndividualUserListItemDto>> Handle(GetListIndividualUserQuery request, CancellationToken cancellationToken)
         {
             Paginate<IndividualUser> individualUsers = await _individualUserRepository.GetListAsync(
-                index: request.pageRequest.PageIndex,
-                size: request.pageRequest.PageSize,
+                index: request.PageRequest.PageIndex,
+                size: request.PageRequest.PageSize,
                 cancellationToken: cancellationToken
                 );
             GetListResponse<GetListIndividualUserListItemDto> getListResponse = _mapper.Map<GetListResponse<GetListIndividualUserListItemDto>>(individualUsers);

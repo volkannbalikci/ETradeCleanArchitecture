@@ -80,7 +80,6 @@
     <Folder Include="Features\Districts\Profiles\" />
     <Folder Include="Features\Districts\Rules\" />
     <Folder Include="Features\IndividualUserAdverts\Commands\Create\" />
-    <Folder Include="Features\IndividualUserAdverts\Commands\Delete\" />
     <Folder Include="Features\IndividualUserAdverts\Commands\Update\" />
     <Folder Include="Features\IndividualUserAdverts\Constants\" />
     <Folder Include="Features\IndividualUserAdverts\Profiles\" />

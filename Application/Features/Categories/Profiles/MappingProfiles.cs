@@ -1,6 +1,7 @@
 ﻿using Application.Features.Categories.Commands.Create;
 using Application.Features.Categories.Commands.Delete;
 using Application.Features.Categories.Commands.Update;
+using Application.Features.Categories.Queries.GetById;
 using Application.Features.Categories.Queries.GetList;
 using AutoMapper;
 using Core.Application.Responses;
@@ -26,5 +27,7 @@ public class MappingProfiles : Profile
 		CreateMap<Category, UpdatedCategoryResponse>().ReverseMap();
 
 		CreateMap<Paginate<Category>, GetListResponse<GetListCategoryListItemDto>>().ReverseMap();
+		CreateMap<Category, GetListCategoryListItemDto>().ReverseMap();
+		CreateMap<Category, GetByIdCategoryResponse>().ReverseMap();
 	}
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.IndividualUserAdverts.Commands.Delete;
 
-public class DeletedIndividualUserAdverResponse
+public class DeletedIndividualUserAdvertResponse
 {
     public Guid Id { get; set; }
 }

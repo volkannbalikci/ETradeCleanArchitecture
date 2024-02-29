@@ -16,7 +16,7 @@ namespace Application.Features.IndividualUserAdverts.Queries.GetList;
 
 public class GetListIndividualUserAdvertQuery : IRequest<GetListResponse<GetListIndividualUserAdvertListItemDto>>
 {
-    public PageRequest pageRequest { get; set; }
+    public PageRequest PageRequest { get; set; }
 
     public class GetListIndividualUserQueryHandler : IRequestHandler<GetListIndividualUserAdvertQuery, GetListResponse<GetListIndividualUserAdvertListItemDto>>
     {
@@ -32,8 +32,8 @@ public class GetListIndividualUserAdvertQuery : IRequest<GetListResponse<GetList
         public async Task<GetListResponse<GetListIndividualUserAdvertListItemDto>> Handle(GetListIndividualUserAdvertQuery request, CancellationToken cancellationToken)
         {
             Paginate<IndividualUserAdvert> individualUserAdverts = await _ındividualUserAdvertRepository.GetListAsync(
-                index: request.pageRequest.PageIndex,
-                size: request.pageRequest.PageSize,
+                index: request.PageRequest.PageIndex,
+                size: request.PageRequest.PageSize,
                 include: i => i.Include(i => i.IndividualUser).Include(i => i.Advert)
                 );
             GetListResponse<GetListIndividualUserAdvertListItemDto> getListResponse = _mapper.Map<GetListResponse<GetListIndividualUserAdvertListItemDto>>(individualUserAdverts);

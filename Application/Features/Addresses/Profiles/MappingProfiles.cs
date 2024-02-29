@@ -1,6 +1,7 @@
 ﻿using Application.Features.Addresses.Commands.Create;
 using Application.Features.Addresses.Commands.Delete;
 using Application.Features.Addresses.Commands.Update;
+using Application.Features.Addresses.Queries.GetById;
 using Application.Features.Addresses.Queries.GetList;
 using AutoMapper;
 using Core.Application.Responses;
@@ -27,6 +28,11 @@ public class MappingProfiles : Profile
 		
 		CreateMap<Paginate<Address>, GetListResponse<GetListAddressListItemDto>>().ReverseMap();
 		CreateMap<Address, GetListAddressListItemDto>()
+			.ForMember(destinationMember: a => a.CountryName, memberOptions: opt => opt.MapFrom(a => a.Country.Name))
+			.ForMember(destinationMember: a => a.CityName, memberOptions: opt => opt.MapFrom(a => a.City.Name))
+			.ForMember(destinationMember: a => a.DistrictName, memberOptions: opt => opt.MapFrom(a => a.District.Name)).ReverseMap();
+		
+		CreateMap<Address, GetByIdAddressResponse>()
 			.ForMember(destinationMember: a => a.CountryName, memberOptions: opt => opt.MapFrom(a => a.Country.Name))
 			.ForMember(destinationMember: a => a.CityName, memberOptions: opt => opt.MapFrom(a => a.City.Name))
 			.ForMember(destinationMember: a => a.DistrictName, memberOptions: opt => opt.MapFrom(a => a.District.Name)).ReverseMap();
